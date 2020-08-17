@@ -1,8 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  text-decoration: none;
-  list-style: none;
   box-sizing: border-box;
 }
 
@@ -34,11 +32,10 @@ body {
   background-size: cover;
 }
 
-.contenedor,
-header {
+.contenedor {
   width: 90%;
-  font-family: FFMarkPro;
   margin: 15px auto;
+  font-family: FFMarkPro;
 
   /*FLEX*/
   display: flex;
@@ -47,56 +44,51 @@ header {
 
 }
 
-.logo img {
+header {
+  background: #000;
+  width: 100%;
+  padding: 0 10px;
+  font-family: FFMarkProBlack;
+
+  /*FLEX*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+}
+
+header .logo img {
   width: 200px;
   vertical-align: top;
-  float: left;
 }
 
-nav {
-  font-family: FFMarkProBlack;
-  background: #000;
-  height: 80%;
-  width: 100%;
-  display: inline-block;
+header nav {
+  /*Se cambió del 50% al 70%*/
+  width: 70%;
+
+  /*FLEX*/
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
-nav ul {
-  float: right;
-  margin-right: 20px;
-}
-
-nav ul li {
-  display: inline-block;
-  line-height: 80px;
-  margin: 0 5px;
-}
-
-nav ul li a {
+header nav a {
+  background: black;
+  /*color:#986E1E;*/
   color: #986E1E;
-  font-size: 17px;
-  padding: 7px 13px;
-  border-radius: 3px;
-  text-transform: uppercase;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
+  text-align: center;
+  text-decoration: none;
+  padding: 18px;
+  font-size: 20px;
+
+  /*FLEX HIJO*/
+  flex-grow: 1;
 }
 
-.checkbtn {
-  display: none;
-  font-size: 30px;
-  color: #986E1E;
-  float: right;
-  line-height: 80px;
-  margin-right: 40px;
-  cursor: pointer;
-
-}
-
-#check {
-  display: none;
+header nav a:hover {
+  background: whitesmoke;
 }
 
 .main {
@@ -104,7 +96,7 @@ nav ul li a {
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: 70%;
-  height: auto;
+  /*height: auto;******************************/
 }
 
 .main img {
@@ -118,19 +110,19 @@ nav ul li a {
   color: #fff;
   padding: 20px;
   width: 400px;
-  top: 70vh;
-  left: 15%;
+  top: 70%;
+  left: 22%;
   text-decoration: none;
   position: absolute;
-  font-size: 12px;
+  font-size: 15px;
   text-align: center;
+  display: table-header-group;
 }
 
 aside {
-  /* background: #212E33; */
   padding: 20px;
+  /*FLEX*/
   flex: 1 1 30%;
-
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -138,8 +130,12 @@ aside {
 }
 
 aside h2 {
-  text-align: center;
+  background: #986E1E;
+  /*text-align: center;*/
   color: #fff;
+  margin: 10px;
+  padding: 10px;
+  text-transform: uppercase;
 }
 
 aside .guia p {
@@ -154,6 +150,10 @@ aside .guia a {
   text-transform: uppercase;
   text-decoration: none;
 
+}
+
+aside .guia p:hover {
+  background: #986E1E;
 }
 
 footer {
@@ -171,31 +171,33 @@ footer .nombres {
   color: #fff;
 }
 
+/*footer .social{
+    display: flex;
+    flex-wrap: wrap;
+}*/
 footer .social a {
   flex-grow: 1;
   color: #986E1E;
   text-decoration: none;
   text-align: center;
   padding: 10px;
-  display: inline-block;
+  
+
 }
 
 footer i {
   background: #000;
+  border-radius: 50%;
   padding: 15px 10px;
   width: 40px;
-  border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
 }
 
-@media screen and (max-width:1366px) {
-  .main img {
-    width: 700px;
-    height: 380px;
-  }
+footer i:hover {
+  background: whitesmoke;
 }
 
 @media screen and (max-width:1000px) {
@@ -208,57 +210,73 @@ footer i {
     top: 70%;
     left: 10%;
   }
-
 }
 
-/*Responsive Menu*/
-@media (max-width:952px) {
-  label.logo {
-    font-size: 30px;
-    padding-left: 50px;
+@media screen and (max-width:800px) {
+  .contenedor {
+    flex-direction: column;
   }
 
-  nav ul li a {
-    font-size: 16px;
-  }
-}
-
-@media (max-width:858px) {
-
-  .contenedor,
   header {
-    margin: 0;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  header .logo {
+    margin: 20px 0px;
+  }
+
+  header nav {
     width: 100%;
   }
 
-  .checkbtn {
-    display: block;
+  aside {
+    flex-direction: row;
+    flex: 0;
   }
 
-  ul {
-    position: fixed;
-    width: 40%;
-    right: -60%;
-    /* height: 100vh; */
-    background: #000;
-    top: 100px;
-    /* right: -100%; */
-    text-align: center;
-    transition: all .5s;
-    -webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    -ms-transition: all .5s;
-    -o-transition: all .5s;
+  aside .guia {
+    flex-grow: 1;
+  }
+}
+
+@media screen and (max-width:600px) {
+  aside {
+    flex-direction: column;
   }
 
-  nav ul li {
-    display: block;
-    border-bottom: 1px solid #986E1E;
+  footer {
+    justify-content: space-around;
   }
 
-  #check:checked~ul {
-    margin: 0;
-    right: 0;
+  .main img {
+    width: 440px;
+    height: 290px;
+  }
+
+  .main a {
+    padding: 20px;
+    width: 425px;
+  }
+}
+
+@media screen and (max-width:300px) {
+  aside {
+    flex-direction: column;
+  }
+
+  footer {
+    justify-content: space-around;
+  }
+
+  .main img {
+    width: 50px;
+    height: 30px;
+  }
+
+  .main a {
+    padding: 10px;
+    width: 30px;
   }
 
 }
