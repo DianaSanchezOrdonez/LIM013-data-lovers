@@ -125,7 +125,7 @@ nav ul {
 
 nav ul li {
   display: inline-block;
-  line-height: 100px;
+  line-height: 80px;
   margin: 0 5px;
 }
 
@@ -181,7 +181,7 @@ nav ul li a {
 
   ul {
     position: fixed;
-    width: 50%;
+    width: 40%;
     right: -60%;
     /* height: 100vh; */
     background: #000;
@@ -198,16 +198,6 @@ nav ul li a {
   nav ul li {
     display: block;
     border-bottom: 1px solid #986E1E;
-  }
-
-  nav ul li a {
-    font-size: 20px;
-  }
-
-  a:hover,
-  a.active {
-    background: none;
-    color: #0082e6;
   }
 
   #check:checked~ul {
