@@ -1,6 +1,4 @@
-import {
-  example
-} from './data.js';
+import {example} from './data.js';
 import data from './data/lol/lol.js';
 
 const legends_container = document.getElementById('legends_container'),
@@ -10,21 +8,23 @@ const legends_container = document.getElementById('legends_container'),
   datos = data.data,
   descripcion = document.getElementById('info');
 //console.log(data.data['Aatrox].blurb)
-
 //console.log('diana',legends_cards.appendChild(legends))
-//console.log(Object.keys(data.data))
-const listLegends = (id,name,title) => {
+console.log(Object.keys(data.data))
+console.log(Object.values(data.data))
+const listLegends = (id,name,img) => {
   const legend = document.createElement('div'),
     imgLegend = document.createElement('img'),
-    infoLegend = document.createElement('div');
+    nameLegend = document.createElement('div');
 
-    infoLegend.innerHTML += id + " " + name + " " + title;
+    nameLegend.innerHTML += id ;
     legend.setAttribute('class','legends');
-    infoLegend.setAttribute('class','info')
+    nameLegend.setAttribute('class','name');
+    imgLegend.setAttribute('class','img-container')
+    imgLegend.setAttribute('src',img)
 
     document.getElementById('legends_container').appendChild(legend);
     legend.appendChild(imgLegend);
-    legend.appendChild(infoLegend);
+    legend.appendChild(nameLegend);
 
 }
 let getLegends = () => {
@@ -32,12 +32,49 @@ let getLegends = () => {
   for ( const prop in datos){
     let id = datos[`${prop}`].id;
     let name = datos[`${prop}`].name;
-    let title = datos[`${prop}`].title;
-    listLegends(id, name, title);
-    console.log('aaaaa',id+name+title)
+    let img = datos[`${prop}`].splash;
+    listLegends(id, name, img);
+    //console.log('aaaaa',id+name+img)
   }
 
 }
+
+const roles = ['Marksman','Support','Mage','Fighter']
+const rol = roles.filter(
+  rol => rol == 'Mage' 
+)
+console.log('rol',rol)
+
+const obj = {
+  nombre: "name",
+  edad: 42
+};
+const obj_2 = {
+  nombre: "name2",
+  edad: 54
+}
+
+const arrayDePersonas = [
+  obj,
+  obj_2,
+  { nombre: 'diana', edad: 10 },
+  { nombre: 'Dani', edad: 18}
+];
+
+
+console.log(arrayDePersonas.filter(
+  (objPersona) => { return objPersona.edad >= 18  }
+))
+
+const arrayLegends = []
+
+// const result = legendas.filter(
+//   legenda => legenda ==  'Akali'
+// )
+// console.log('result',result);
+
+
+
 
 getLegends();
 function crearLegends() {
