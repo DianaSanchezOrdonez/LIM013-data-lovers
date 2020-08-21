@@ -29,7 +29,6 @@ const listLegends = (name, img) => {
 /*---TRAER DATA---*/
 
 const getLegends = () => {
-
   for (let i = 0; i < arrayLegends.length; i++) {
     let name = arrayLegends[i].name;
     let img = arrayLegends[i].splash;
@@ -40,20 +39,20 @@ const getLegends = () => {
 getLegends();
 
 /*---FILTRO DE LA DATA---*/
-const filterLegends = () => {
-  search.addEventListener('click', (e) => {
-    const rol = e.target.id
-    const result = arrayLegends.filter(
-      (objLegend) => {
-        return objLegend.tags.includes(rol);
-      }
-    )
-    //console.log('result', result)
-    return result
-  })
-}
 
-filterLegends();
+search.addEventListener('click', (e) => {
+  const rol = e.target.id
+  const result = arrayLegends.filter(
+    (objLegend) => {
+      return objLegend.tags.includes(rol);
+    }
+  )
+  //console.log('result', result)
+  return result;
+})
+
+
+
 
 /*---ORDENAR DE LA DATA---*/
 const selector = document.querySelector('#order')
@@ -66,7 +65,7 @@ selector.addEventListener('click', (e) => {
       (a.toLowerCase() > b.toLowerCase()) ? -1 :
       0
     )
-    
+
   } else {
     return arrayLegends.sort(
       (a, b) => (a.toLowerCase() > b.toLowerCase()) ? 1 :
