@@ -1,9 +1,9 @@
-import filterLegend from '../src/data.js';
+import order from '../src/data.js';
 
 
 describe('example', () => {
   it('is a function', () => {
-    expect(typeof filterLegend).toBe('function');
+    expect(typeof order.filterLegend).toBe('function');
   });
 
   it('returns `example`', () => {
