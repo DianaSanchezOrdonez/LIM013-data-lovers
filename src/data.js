@@ -1,9 +1,10 @@
-// estas funciones son de ejemplo
+const filterLegend = (data, rol) => {
+  const result = data.filter(
+    (objLegend) => {
+      return objLegend.tags.includes(rol);
+    }
+  )
+  return result
+}
 
-export const example = () => {
-  return 'example';
-};
-
-export const anotherExample = () => {
-  return 'OMG';
-};
+export default filterLegend;

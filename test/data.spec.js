@@ -1,23 +1,24 @@
-import { example, anotherExample } from '../src/data.js';
+import filterLegend from '../src/data.js';
 
 
 describe('example', () => {
   it('is a function', () => {
-    expect(typeof example).toBe('function');
+    expect(typeof filterLegend).toBe('function');
   });
 
   it('returns `example`', () => {
-    expect(example()).toBe('example');
+    expect(filterLegend('Aatrox','Mage')).toBe(true);
   });
 });
 
 
-describe('anotherExample', () => {
-  it('is a function', () => {
+/* describe('anotherExample', () => {
+  it.skip('is a function', () => {
     expect(typeof anotherExample).toBe('function');
   });
 
-  it('returns `anotherExample`', () => {
+  it.skip('returns `anotherExample`', () => {
     expect(anotherExample()).toBe('OMG');
   });
 });
+ */
