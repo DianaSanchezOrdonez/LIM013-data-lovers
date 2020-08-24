@@ -33,14 +33,6 @@ const getLegends = (objLegend) => {
 };
 
 getLegends(arrayLegends);
-const slice = document.getElementById('slice')
-const mostrar8 = () => {
-  const data = arrayLegends.slice(0,8);
-  document.getElementById('legends_container').innerHTML = '';
-  getLegends(data)
-}
-
-slice.addEventListener('click' , mostrar8)
 
 /*---FILTRO DE LA DATA---*/
 filter.addEventListener('click', (e) => {
@@ -106,4 +98,13 @@ const search = () => {
 
 inputSearch.addEventListener('keyup', search)
 
-console.log('arrayLegends.slice(10,30)',arrayLegends.slice(0,8))
+/* const slice = document.getElementById('slice')
+const mostrar8 = () => {
+  const data = arrayLegends.slice(0,8);
+  document.getElementById('legends_container').innerHTML = '';
+  getLegends(data)
+}
+
+slice.addEventListener('click' , mostrar8) */
+
+

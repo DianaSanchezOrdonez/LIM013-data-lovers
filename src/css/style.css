@@ -87,17 +87,14 @@ header nav a:hover {
 }
 
 .main {
-  padding: 20px;
   flex-grow: 1;
   flex-shrink: 1;
   flex-basis: 70%;
-
 }
 
 .main img {
-  padding: 10px 0px;
-  width: 900px;
-  height: 650px;
+  padding: 20px 10px;
+  width: 95%;
 }
 
 .main a {
@@ -106,16 +103,14 @@ header nav a:hover {
   padding: 20px;
   width: 400px;
   top: 70%;
-  left: 22%;
+  left: 15%;
   text-decoration: none;
   position: absolute;
   font-size: 15px;
   text-align: center;
-  display: table-header-group;
 }
 
 aside {
-  padding: 20px;
   /*FLEX*/
   flex: 1 1 30%;
   display: flex;
@@ -128,16 +123,16 @@ aside h2 {
   background: #986E1E;
   /*text-align: center;*/
   color: #fff;
-  margin: 10px;
   padding: 10px;
   text-transform: uppercase;
+  text-align: center;
+  font-size: 18px;
 }
 
 aside .guia p {
   background: #212E33;
-  height: 50px;
-  margin: 10px;
-  padding: 10px;
+  height: 30px;
+  padding: 15px 0 10px 10px;
 }
 
 aside .guia a {
@@ -159,6 +154,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
 }
 
 footer .nombres {
@@ -176,13 +172,13 @@ footer .social a {
   text-decoration: none;
   text-align: center;
   padding: 10px;
-
 }
 
 footer i {
   background: #000;
   border-radius: 50%;
-  padding: 15px 10px;
+  padding: 10px 10px;
+  width: 20px;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
@@ -193,7 +189,7 @@ footer i:hover {
   background: whitesmoke;
 }
 
-@media screen and (max-width:1000px) {
+/* @media screen and (max-width:1000px) {
   .main img {
     width: 600px;
     height: 590px;
@@ -272,91 +268,7 @@ footer i:hover {
     width: 30px;
   }
 
-}
-
-@media screen and (max-width:1000px) {
-  .main img {
-    width: 600px;
-    height: 590px;
-  }
-
-  .main a {
-    top: 70%;
-    left: 10%;
-  }
-}
-
-@media screen and (max-width:800px) {
-  .contenedor {
-    flex-direction: column;
-  }
-
-  header {
-    flex-direction: column;
-    padding: 0;
-  }
-
-  header .logo {
-    margin: 20px 0px;
-  }
-
-  header nav {
-    width: 100%;
-  }
-
-  aside {
-    flex-direction: row;
-    flex: 0;
-  }
-
-  aside .guia {
-    flex-grow: 1;
-  }
-}
-
-@media screen and (max-width:600px) {
-  aside {
-    flex-direction: column;
-  }
-
-  footer {
-    justify-content: space-around;
-  }
-
-  .main img {
-    width: 440px;
-    height: 290px;
-  }
-
-  .main a {
-    padding: 20px;
-    width: 425px;
-  }
-}
-
-@media screen and (max-width:300px) {
-  aside {
-    flex-direction: column;
-  }
-
-  footer {
-    justify-content: space-around;
-  }
-
-  .main img {
-    width: 50px;
-    height: 30px;
-  }
-
-  .main a {
-    padding: 10px;
-    width: 30px;
-  }
-
-}
-
-
-
+} */
 
 /*---------------BUSCADOR -------- */
 .search_container {
@@ -364,7 +276,7 @@ footer i:hover {
   margin: 10px 0;
   padding: 0px 10px 0px 0px;
   width: 100%;
-  
+
   border: 2px solid #986E1E;
   border-radius: 5px;
   display: flex;
@@ -403,6 +315,13 @@ input[type=button] {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+input[type=button]:active {
+  border: none !important;
+  border-bottom: 2px solid #986E1E;
+  cursor: pointer;
+
 }
 
 /*---------------CARDS LEGEDS -------- */
