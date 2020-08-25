@@ -5,26 +5,34 @@ const datos = data.data,
   filter = document.getElementById("filter"),
   arrayLegends = Object.values(datos);
 
+  console.log('prueba',arrayLegends[0].info.attack)
 
 /*---LISTAR EN EL HTML---*/
-const listLegends = (name, img) => {
+const listLegends = (name, img, title, attack, defense, magic) => {
   const legend = document.createElement("div"),
     imgLegend = document.createElement("img"),
-    nameLegend = document.createElement("div");
+    nameLegend = document.createElement("div"),
+    titleLegend = document.createElement("div"),
+    infoLegend = document.createElement("div");
+
+  infoLegend.innerHTML = '';
 
   nameLegend.innerHTML += name;
+  titleLegend.innerHTML += title;
+  infoLegend.innerHTML += `<p>ATTACK: ${magic}<p>` + `<p>DEFENSE: ${defense}<p>` + `<p>MAGIC: ${magic}<p>`;
+  
   legend.setAttribute("class", "legends");
   imgLegend.setAttribute("class", "img-container");
   imgLegend.setAttribute("src", img);
   nameLegend.setAttribute("class", "name");
+  titleLegend.setAttribute("class", "title");
+  infoLegend.setAttribute("class", "info");
 
   document.getElementById("legends_container").appendChild(legend);
   legend.appendChild(imgLegend);
   legend.appendChild(nameLegend);
-
-  legend.addEventListener('click', () => {
-    console.log('Hello world')
-  })
+  legend.appendChild(titleLegend);
+  legend.appendChild(infoLegend);
   
 };
 
@@ -33,7 +41,12 @@ const getLegends = (objLegend) => {
   for (let i = 0; i < objLegend.length; i++) {
     let name = objLegend[i].name;
     let img = objLegend[i].splash;
-    listLegends(name, img);
+    let title = objLegend[i].title;
+    let attack = objLegend[i].info.attack;
+    let defense = objLegend[i].info.defense;
+    let magic = objLegend[i].info.magic;
+
+    listLegends(name, img, title, attack, defense, magic);
   }
 };
 
