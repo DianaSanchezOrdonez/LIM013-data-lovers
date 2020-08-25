@@ -330,7 +330,7 @@ input[type=button]:active {
   flex-wrap: wrap;
   align-items: space-beetween;
   justify-content: center;
-  margin: o auto;
+  margin: 0px auto;
   /* max-width: 1200px; */
 }
 
@@ -338,6 +338,7 @@ input[type=button]:active {
   background: #0A3238;
   border: 3px solid #986E1E;
   border-radius: 15px;
+  cursor: pointer;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
@@ -364,4 +365,34 @@ input[type=button]:active {
   font-size: 20px;
   margin: 15px 0 7px;
   letter-spacing: 1px;
+}
+
+/*---------------CARDS LEGEDS -------- */
+.legends_info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: space-beetween;
+  justify-content: space-between;
+  justify-content: center;
+  margin: 0px auto;
+}
+.legends_info .image{
+  width: 50%;
+  margin: 20px 0px;
+}
+.legends_info img{
+  width: 60%;
+  height: 300px;
+  border: 2px solid #986E1E;
+  margin: 5% 50px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.legends_info .info{
+  width: 40%;
+  padding: 20px 20px;
+ 
 }

@@ -21,6 +21,11 @@ const listLegends = (name, img) => {
   document.getElementById("legends_container").appendChild(legend);
   legend.appendChild(imgLegend);
   legend.appendChild(nameLegend);
+
+  legend.addEventListener('click', () => {
+    console.log('Hello world')
+  })
+  
 };
 
 /*---TRAER DATA---*/
