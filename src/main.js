@@ -7,6 +7,7 @@ const datos = data.data,
 
 /*---LISTAR EN EL HTML---*/
 const listLegends = (name, img, title) => {
+
   const legend = document.createElement("div"),
     imgLegend = document.createElement("img"),
     nameLegend = document.createElement("div"),
@@ -24,21 +25,26 @@ const listLegends = (name, img, title) => {
   legend.appendChild(imgLegend);
   legend.appendChild(nameLegend);
   legend.appendChild(titleLegend);
+
 };
 
 /*---TRAER DATA---*/
+
 const getLegends = (objLegend) => {
   for (let i = 0; i < objLegend.length; i++) {
     let name = objLegend[i].name;
     let img = objLegend[i].splash;
     let title = objLegend[i].title;
+    
     listLegends(name, img, title);
+    
   }
 };
 
 getLegends(arrayLegends);
 
 /*---FILTRO DE LA DATA---*/
+
 filter.addEventListener('click', (e) => {
   const rol = e.target.id
 
@@ -51,8 +57,11 @@ filter.addEventListener('click', (e) => {
   }
 })
 
+
+
 /*ORDER */
 const selector = document.querySelector("#order");
+
 selector.addEventListener("click", (e) => {
   const orderName = e.target.value;
   //console.log("prueba",e.target.value);
@@ -66,6 +75,8 @@ selector.addEventListener("click", (e) => {
     getLegends(prueba)
   }
 });
+
+
 
 /*BUSCADOR */
 const inputSearch = document.querySelector('#inputSearch'),
@@ -98,6 +109,8 @@ const search = () => {
 }
 
 inputSearch.addEventListener('keyup', search)
+
+
 
 /*ESTADISTICA SELECT */
 const legend01 = document.querySelector('#select01')

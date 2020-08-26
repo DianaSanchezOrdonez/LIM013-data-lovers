@@ -89,7 +89,9 @@ header nav a {
 }
 
 header nav a:hover {
-  background: whitesmoke;
+  border-bottom: 2px solid #fff;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 .main {
@@ -446,6 +448,7 @@ input[type=button] {
 
 .legends {
   background: #0A3238;
+  border: 2px solid #986E1E;
   border-radius: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
