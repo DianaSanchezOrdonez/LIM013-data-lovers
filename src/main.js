@@ -5,6 +5,32 @@ const datos = data.data,
   filter = document.getElementById("filter"),
   arrayLegends = Object.values(datos);
 
+/* menuOptions.addEventListener('click' ,(e) => {
+  const option = e.target.id 
+  if(option == 'index'){
+    document.querySelector('.main').style.display = 'block'
+    document.querySelector('.guia').style.display = 'block'
+    document.getElementById('champions').style.display = 'none'
+    document.getElementById('estadisticas').style.display = 'none'
+    document.getElementById('soundtrack').style.display = 'none'
+  }
+  else if(option == 'campeones'){
+    document.querySelector('.main').style.display = 'none'
+    document.querySelector('.guia').style.display = 'none'
+    document.getElementById('champions').style.display = 'block'
+    document.getElementById('estadisticas').style.display = 'none'
+    document.getElementById('soundtrack').style.display = 'none'
+  }
+  else if(option == 'estadisticas'){
+    document.querySelector('.main').style.display = 'none'
+    document.querySelector('.guia').style.display = 'none'
+    document.getElementById('champions').style.display = 'none'
+    document.getElementById('estadisticas').style.display = 'block'
+    document.getElementById('soundtrack').style.display = 'none'
+  }
+  console.log('option',option)
+}) */
+
 /*---LISTAR EN EL HTML---*/
 const listLegends = (name, img, title) => {
 
@@ -35,9 +61,9 @@ const getLegends = (objLegend) => {
     let name = objLegend[i].name;
     let img = objLegend[i].splash;
     let title = objLegend[i].title;
-    
+
     listLegends(name, img, title);
-    
+
   }
 };
 
@@ -47,7 +73,7 @@ getLegends(arrayLegends);
 
 filter.addEventListener('click', (e) => {
   const rol = e.target.id
-
+  console.log('rol',rol)
   if (rol == null || rol == '' || rol == 'All') {
     getLegends(arrayLegends);
   } else {
@@ -57,8 +83,6 @@ filter.addEventListener('click', (e) => {
   }
 })
 
-
-
 /*ORDER */
 const selector = document.querySelector("#order");
 
@@ -66,17 +90,15 @@ selector.addEventListener("click", (e) => {
   const orderName = e.target.value;
   //console.log("prueba",e.target.value);
   if (orderName == "asc") {
-    const prueba = order.nameChampionAz(arrayLegends);
+    const asc = order.nameChampionAz(arrayLegends);
     document.getElementById("legends_container").innerHTML = "";
-    getLegends(prueba)
+    getLegends(asc)
   } else if (orderName == "desc") {
-    const prueba = order.nameChampionZa(arrayLegends);
+    const desc = order.nameChampionZa(arrayLegends);
     document.getElementById("legends_container").innerHTML = "";
-    getLegends(prueba)
+    getLegends(desc)
   }
 });
-
-
 
 /*BUSCADOR */
 const inputSearch = document.querySelector('#inputSearch'),
@@ -110,46 +132,3 @@ const search = () => {
 
 inputSearch.addEventListener('keyup', search)
 
-
-
-/*ESTADISTICA SELECT */
-const legend01 = document.querySelector('#select01')
-console.log('legen01', legend01)
-for (let i = 0; i < arrayLegends.length; i++) {
-  let option = document.createElement('option');
-  option.value = arrayLegends[i].name;
-  option.innerText = arrayLegends[i].name;
-  legend01.appendChild((option))
-}
-
-const legend02 = document.querySelector('#select01')
-console.log('legen01', legend01)
-for (let i = 0; i < arrayLegends.length; i++) {
-  let option = document.createElement('option');
-  option.value = arrayLegends[i].name;
-  option.innerText = arrayLegends[i].name;
-  legend02.appendChild((option))
-}
-
-
-
-
-
-
-/*ESTADÍSTICAS MÉTODO REDUCE (hpper level, mpper level, attack damage per level)*/
-//const reducer = (acumulador, valorActual)=> nuevoAcumulador
-//ejecutando función con array vacío
-const plano = arrayLegends.reduce((acc, el) => acc.concat(el), [])
-//console.log(plano);
-//const indexed= (arrayLegends[0].stats).reduce((acc, el) => ({
-// []
-//}));
-console.log(arrayLegends);
-const level = 1;
-
-const estadisticas = arrayLegends.reduce(function (acc, el) {
-  if (level === 1) {
-    return acc, (el.stats.hpperlevel * 1);
-  }
-}, 0)
-console.log(estadisticas);
