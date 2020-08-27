@@ -117,6 +117,7 @@ const search = () => {
         `<div class="legends">
         <img class="img-container" src="${legend.splash}" alt="">
         <div class="name">${legend.name}</div>
+        <div class="name">"${legend.title}"</div>
       </div>`
     }
   }
