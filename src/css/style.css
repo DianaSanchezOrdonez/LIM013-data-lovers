@@ -1,7 +1,7 @@
-*{	
-    margin: 0;	
-    padding: 0;	
-    box-sizing: border-box;	
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 @font-face {
@@ -84,7 +84,7 @@ header nav a {
 
   font-size: 18px;
 
- /*FLEX HIJO*/
+  /*FLEX HIJO*/
   flex-grow: 1;
 }
 
@@ -92,6 +92,7 @@ header nav a:hover {
   border-bottom: 2px solid #fff;
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
+
 }
 
 .main {
@@ -100,6 +101,28 @@ header nav a:hover {
   flex-shrink: 1;
   flex-basis: 70%;
 
+}
+
+/**************/
+main .list {
+  width: 80%;
+  max-width: 768px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  margin-top: 25px;
+}
+
+main.list .item {
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+main list .item:last-of-type {
+  border-bottom: none;
+}
+
+main .list .item:hover {
+  background: rgba (0, 0, 0, 0.05);
 }
 
 .main img {
@@ -163,7 +186,7 @@ footer {
   background: #986E1E;
   width: 100%;
   padding: 5px 10px;
- /*FLEX*/
+  /*FLEX*/
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -294,7 +317,7 @@ footer i:hover {
 }
 
 @media screen and (max-width:768px) {
-  .container{
+  .container {
     flex-direction: column;
   }
 
@@ -310,9 +333,11 @@ footer i:hover {
   header nav {
     width: 100%;
   }
+
   .main img {
     width: 100%;
   }
+
   .main a {
     top: 70%;
     left: 22.5%;
@@ -329,7 +354,7 @@ footer i:hover {
 }
 
 @media screen and (max-width:375px) {
-  .container{
+  .container {
     font-size: 12px;
     flex-direction: column;
   }
@@ -349,6 +374,7 @@ footer i:hover {
     width: 100%;
     height: 50%;
   }
+
   .main a {
     top: 55%;
     width: 55%;
@@ -363,6 +389,7 @@ footer i:hover {
     flex-grow: 1;
   }
 }
+
 /*@media screen and (max-width:375px) {
   aside {
     flex-direction: column;
@@ -409,41 +436,57 @@ footer i:hover {
 
 /*---------------BUSCADOR -------- */
 .search {
-  margin: 10px auto;
+  width: 85%;
+  display: flex;
+  margin: auto;
+}
+
+.search1 {
+  background: #fff;
+  margin: 10px 0;
   padding: 10px;
-  width: 88%;
+  width: 30%;
   border: 2px solid #986E1E;
-  border-radius: 5px;
+  border-radius: 5px 0px 0px 5px;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   flex-wrap: wrap;
-  -webkit-border-radius: 5px;
+  /*-webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+  -o-border-radius: 5px;*/
 }
 
-.inputSearch{
-  text-align: center;
-  margin: 20px auto 10px auto;
-  width: 88%;
-  text-align: center;
-}
-
-#inputSearch{
+#inputSearch {
+  background: white;
+  border: white;
   width: 100%;
-  height: 40px;
+}
+
+#filter {
+  background: white;
+  width: 50%;
   border: 2px solid #986E1E;
-  border-radius: 5px;
+  margin: 10px 0px;
+  align-items: center;
+  line-height: 35px;
+  text-align: center;
 }
 
 input[type=button] {
-  color: #fff;
   background: none;
   border: none;
-  margin-right: 20px;
   cursor: pointer;
+  margin-right: 10px;
+}
+
+#order {
+  background: white;
+  width: 20%;
+  border: 2px solid #986E1E;
+  margin: 10px 0px;
+  border-radius: 0px 5px 5px 0px;
 }
 
 /*---------------CARDS LEGEDS -------- */
@@ -452,8 +495,8 @@ input[type=button] {
   flex-wrap: wrap;
   align-items: space-beetween;
   justify-content: center;
-  margin: 0px auto;
-  width:100%;
+  margin: o auto;
+  width: 100%;
   /* max-width: 1200px; */
 }
 
@@ -467,7 +510,7 @@ input[type=button] {
   -o-border-radius: 15px;
   box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
   margin: 10px;
-  width: 280px;
+  width: 300px;
   /*height: 250px;*/
   text-align: center;
   padding-bottom: 15px;
@@ -492,21 +535,21 @@ input[type=button] {
 
 }
 
-.legends_container .inputs{
+.legends_container .inputs {
   width: 100%;
   align-items: center;
-  display:flex;
+  display: flex;
   justify-content: space-around;
 }
 
-.legends_container .inputs input{
-  width:30%;
+.legends_container .inputs input {
+  width: 30%;
   height: 50px;
   margin: 20px 0px 20px 0px;
 
 }
 
-.legends_list{
+.legends_list {
   display: flex;
   flex-wrap: no-wrap;
   align-items: space-beetween;
@@ -514,43 +557,28 @@ input[type=button] {
   margin: 0px auto;
 }
 
-.legends_stats1{
+.legends_stats1 {
   flex: 2 1 50%;
   text-align: center;
   margin: 10px;
+  border: 2px solid #986E1E;
+  background: #3F3F41;
+  color: #fff;
+}
+
+.legends_list img {
+  width: 300px;
+}
+
+.legends_list p{
+  padding: 10px 0px;
+}
+
+.legends_list .name{
+  background: #0A3238;
+  height: 70px;
   padding: 20px;
-  border: 1px solid #986E1E;
+  font-size: 20px;
+  text-transform: uppercase;
 }
-.legends_stats2{
-  flex: 2 1 50%;
-  text-align: center;
-  margin: 10px;
-  padding: 20px;
-  border: 1px solid #986E1E;
-}
-.legends_list img{
-  width: 280px;
-}
-/* .legends_container .images{
-  
-  width: 90%;
-  justify-content:space-around;
-}
-.legends_container .images img{
-  width:280px;
-  border-radius: 15px;
-  margin: 20px 10px 10px 10px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
-}
-.stats{
-  width: 100%;
-  margin: auto;
-}
-label{
-  width:50%;
-  text-align:center;
-  display: inline-block;
-} */
+

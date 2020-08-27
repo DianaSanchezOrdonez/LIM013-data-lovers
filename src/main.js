@@ -73,8 +73,9 @@ getLegends(arrayLegends);
 
 filter.addEventListener('click', (e) => {
   const rol = e.target.id
-  console.log('rol',rol)
+  //console.log('rol',rol)
   if (rol == null || rol == '' || rol == 'All') {
+    document.getElementById('legends_container').innerHTML = '';
     getLegends(arrayLegends);
   } else {
     const result = order.filterLegend(arrayLegends, rol)
@@ -132,4 +133,3 @@ const search = () => {
 }
 
 inputSearch.addEventListener('keyup', search)
-
