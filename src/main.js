@@ -3,33 +3,21 @@ import data from './data/lol/lol.js';
 
 const datos = data.data,
   filter = document.getElementById("filter"),
-  arrayLegends = Object.values(datos);
+  arrayLegends = Object.values(datos),
+  menuOptions = document.querySelector(".menuOptions");
 
 /* menuOptions.addEventListener('click' ,(e) => {
-  const option = e.target.id 
+  const option = e.target.id
+  
   if(option == 'index'){
-    document.querySelector('.main').style.display = 'block'
-    document.querySelector('.guia').style.display = 'block'
-    document.getElementById('champions').style.display = 'none'
-    document.getElementById('estadisticas').style.display = 'none'
-    document.getElementById('soundtrack').style.display = 'none'
+    document.querySelector('.container1').style.display = 'block'
   }
-  else if(option == 'campeones'){
-    document.querySelector('.main').style.display = 'none'
-    document.querySelector('.guia').style.display = 'none'
-    document.getElementById('champions').style.display = 'block'
-    document.getElementById('estadisticas').style.display = 'none'
-    document.getElementById('soundtrack').style.display = 'none'
+  else if(option == 'champions'){
+    document.querySelector('.container1').style.display = 'none'
+    document.querySelector('.container2').style.display = 'flex'
   }
-  else if(option == 'estadisticas'){
-    document.querySelector('.main').style.display = 'none'
-    document.querySelector('.guia').style.display = 'none'
-    document.getElementById('champions').style.display = 'none'
-    document.getElementById('estadisticas').style.display = 'block'
-    document.getElementById('soundtrack').style.display = 'none'
-  }
-  console.log('option',option)
-}) */
+  console.log('options',option) 
+})  */
 
 /*---LISTAR EN EL HTML---*/
 const listLegends = (name, img, title) => {

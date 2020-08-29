@@ -1,3 +1,4 @@
+import order from './data.js';
 import data from './data/lol/lol.js';
 
 const datos = data.data,
@@ -5,8 +6,7 @@ const datos = data.data,
 
 /**HTML */
 const listStats = (name, splash, hpperlevel, mpperlevel, attackdamageperlevel) => {
-  const legends_list = document.createElement('div'),
-    legends_stats1 = document.createElement('div'),
+  const legends_stats1 = document.createElement('div'),
     nameLegend = document.createElement('p'),
     statsLegend = document.createElement('p'),
     image = document.createElement('img');
@@ -16,12 +16,10 @@ const listStats = (name, splash, hpperlevel, mpperlevel, attackdamageperlevel) =
                             <p>MpperLevel: ${mpperlevel}</p>
                             <p>AttackDamageperLevel: ${attackdamageperlevel}</p>`;
   nameLegend.setAttribute('class', 'name');
-  legends_list.setAttribute('class', 'legends_list');
   legends_stats1.setAttribute('class', 'legends_stats1');
   image.setAttribute('src', splash);
 
-  document.querySelector('.legends_container').appendChild(legends_list);
-  legends_list.appendChild(legends_stats1);
+  document.querySelector('.legends_list').appendChild(legends_stats1);
   legends_stats1.appendChild(nameLegend);
   legends_stats1.appendChild(image);
   legends_stats1.appendChild(statsLegend);
@@ -38,29 +36,34 @@ const getStats = (objLegend, selected) => {
     let attackdamageperlevel = objLegend[i].stats.attackdamageperlevel;
     //console.log('OBJECT',objLegend[i].name);
     if (objLegend[i].name == selected) {
-      //console.log('select',selected)
+      //console.log('select',i)
+      const level = 2;
+      //const prodNivel = order.statsPerLevel(arrayLegends, level, i)
       listStats(name, splash, hpperlevel, mpperlevel, attackdamageperlevel);
+      console.log('prodNivel', level)
     }
   }
 };
 
 /*METODO MAP */
-const level = document.getElementById('number');
+/* const prodNivel = arrayLegends.map(
+  (item) => {
+    const name = item.name
+    const hp = item.stats.hpperlevel * level
+    return name + ': ' + hp
+  })  */
+/*  const level = e.target.value;
+ const position = 1;
+ const prodNivel = order.statsPerLevel(arrayLegends,level,position)
+ console.log('prueba', prodNivel) */
+;
+//console.log('prueba', prodNivel)
+//return prodNivel;
 
-level.addEventListener('click', (e) => {
-  const level = e.target.value;
-  //console.log(level);
-  const prodNivel = arrayLegends.map(
-    (item) => {
-      const name = item.name
-      const hp = item.stats.hpperlevel * level
-      return name + ': ' + hp
-    })
-
-  console.log('prueba', prodNivel);
-  return prodNivel;
-});
-
+const nivel = 2;
+const position = 1;
+const reduce = order.statsPerLevel(arrayLegends, nivel, position)
+console.log('reduce', reduce)
 
 /*ESTADISTICA SELECT */
 
@@ -85,11 +88,21 @@ for (let i = 0; i < arrayLegends.length; i++) {
 legend01.addEventListener('change', (e) => {
   const legend = e.target.value
   //console.log('prueba123',e.target.value);
+  //document.querySelector('.legends_stats1').innerHTML = '';
   getStats(arrayLegends, legend);
 })
 
 legend02.addEventListener('change', (e) => {
   const legend = e.target.value
   //console.log('prueba123',e.target.value);
+  //document.querySelector('.legends_stats1').innerHTML = '';
   getStats(arrayLegends, legend);
+
 })
+
+const level = document.getElementById('number');
+level.addEventListener('change', (e) => {
+  const level = e.target.value;
+  //console.log(level);
+  getStats(arrayLegends,level)
+});

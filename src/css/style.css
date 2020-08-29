@@ -551,14 +551,14 @@ input[type=button] {
 
 .legends_list {
   display: flex;
-  flex-wrap: no-wrap;
+  flex-wrap: wrap;
   align-items: space-beetween;
   justify-content: center;
   margin: 0px auto;
 }
 
 .legends_stats1 {
-  flex: 2 1 50%;
+  
   text-align: center;
   margin: 10px;
   border: 2px solid #986E1E;
