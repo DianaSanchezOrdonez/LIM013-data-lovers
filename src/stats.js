@@ -6,6 +6,22 @@ const datos = data.data,
 
 let level = 0;
 
+/*MENU BURGUER */
+let button = document.getElementById('icon');
+let links = document.getElementById('links');
+let count = 0;
+
+button.addEventListener('click', () => {
+  if (count == 0) {
+    links.className = ('links_two');
+    count = 1;
+  } else {
+    links.classList.remove('two');
+    links.className = ('links_one');
+    count = 0;
+  }
+})
+
 /**HTML */
 const listStats = (name, splash, hp, hpActual, mp, mpActual, attackdamage, attackActual, iddiv) => {
   //console.log('mpActual', mpActual);

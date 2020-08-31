@@ -4,23 +4,25 @@ import data from './data/lol/lol.js';
 const datos = data.data,
   filter = document.getElementById("filter"),
   arrayLegends = Object.values(datos),
-  menuOptions = document.querySelector(".menuOptions"),
   legends_container = document.getElementById('legends_container'),
   pagination_element = document.getElementById('pagination'),
   inputSearch = document.querySelector('#inputSearch');
 
-/* menuOptions.addEventListener('click' ,(e) => {
-  const option = e.target.id
-  
-  if(option == 'index'){
-    document.querySelector('.container1').style.display = 'block'
+/*MENU BURGUER */
+let button = document.getElementById('icon');
+let links = document.getElementById('links');
+let count = 0;
+
+button.addEventListener('click', () => {
+  if (count == 0) {
+    links.className = ('links two');
+    count = 1;
+  } else {
+    links.classList.remove('one');
+    links.className = ('links one');
+    count = 0;
   }
-  else if(option == 'champions'){
-    document.querySelector('.container1').style.display = 'none'
-    document.querySelector('.container2').style.display = 'flex'
-  }
-  console.log('options',option) 
-})  */
+})
 
 /*---LISTAR EN EL HTML---*/
 const listLegends = (name, img, title) => {
@@ -46,7 +48,6 @@ const listLegends = (name, img, title) => {
 };
 
 /*---TRAER DATA---*/
-
 const getLegends = (objLegend) => {
   for (let i = 0; i < objLegend.length; i++) {
     let name = objLegend[i].name;
@@ -87,18 +88,18 @@ const setupPagination = (items, wrapper, rows_per_page) => {
 
   let page_count = Math.ceil(items.length / rows_per_page);
   for (let i = 1; i < page_count + 1; i++) {
-    let btn = paginationButton(i, items);
+    let btn = paginationButton(i);
     wrapper.appendChild(btn);
   }
 }
 
-const paginationButton = (page, items) => {
+const paginationButton = (page) => {
   let button = document.createElement('button');
   button.innerText = page;
 
   if (current_page == page) button.classList.add('active');
 
-  button.addEventListener('click', function () {
+  button.addEventListener('click', () => {
     current_page = page;
     displayList(arrayLegends, legends_container, rows, current_page);
 
@@ -116,10 +117,9 @@ setupPagination(arrayLegends, pagination_element, rows);
 
 
 /*---FILTRO DE LA DATA---*/
-
 filter.addEventListener('click', (e) => {
   const rol = e.target.id
-  console.log('rol',rol)
+  //console.log('rol', rol)
   if (rol == '' || rol == 'filter' || rol == 'All') {
     document.getElementById('legends_container').innerHTML = '';
     displayList(arrayLegends, legends_container, rows, current_page);
