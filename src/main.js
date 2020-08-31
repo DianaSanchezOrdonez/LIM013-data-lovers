@@ -71,7 +71,7 @@ const displayList = (items, wrapper, rows_per_page, page) => {
   let start = rows_per_page * page;
   let end = start + rows_per_page;
   let paginationItems = items.slice(start, end);
-  //console.log('paginationItems',paginationItems)
+  //console.log('paginationItems', start)
 
   for (let i = 0; i < paginationItems.length; i++) {
     let item = paginationItems[i];
@@ -119,8 +119,8 @@ setupPagination(arrayLegends, pagination_element, rows);
 
 filter.addEventListener('click', (e) => {
   const rol = e.target.id
-  //console.log('rol',rol)
-  if (rol == null || rol == '' || rol == 'All') {
+  console.log('rol',rol)
+  if (rol == '' || rol == 'filter' || rol == 'All') {
     document.getElementById('legends_container').innerHTML = '';
     displayList(arrayLegends, legends_container, rows, current_page);
     setupPagination(arrayLegends, pagination_element, rows);
