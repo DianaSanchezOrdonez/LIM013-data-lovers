@@ -4,7 +4,10 @@ import data from './data/lol/lol.js';
 const datos = data.data,
   filter = document.getElementById("filter"),
   arrayLegends = Object.values(datos),
-  menuOptions = document.querySelector(".menuOptions");
+  menuOptions = document.querySelector(".menuOptions"),
+  legends_container = document.getElementById('legends_container'),
+  pagination_element = document.getElementById('pagination'),
+  inputSearch = document.querySelector('#inputSearch');
 
 /* menuOptions.addEventListener('click' ,(e) => {
   const option = e.target.id
@@ -57,6 +60,61 @@ const getLegends = (objLegend) => {
 
 getLegends(arrayLegends);
 
+/**PAGINACIÓN */
+let current_page = 1;
+let rows = 8;
+
+const displayList = (items, wrapper, rows_per_page, page) => {
+  wrapper.innerHTML = '';
+  page--;
+
+  let start = rows_per_page * page;
+  let end = start + rows_per_page;
+  let paginationItems = items.slice(start, end);
+  //console.log('paginationItems',paginationItems)
+
+  for (let i = 0; i < paginationItems.length; i++) {
+    let item = paginationItems[i];
+
+    //console.log('item',item.name)
+    listLegends(item.name, item.splash, item.title)
+  }
+
+}
+
+const setupPagination = (items, wrapper, rows_per_page) => {
+  wrapper.innerHTML = '';
+
+  let page_count = Math.ceil(items.length / rows_per_page);
+  for (let i = 1; i < page_count + 1; i++) {
+    let btn = paginationButton(i, items);
+    wrapper.appendChild(btn);
+  }
+}
+
+const paginationButton = (page, items) => {
+  let button = document.createElement('button');
+  button.innerText = page;
+
+  if (current_page == page) button.classList.add('active');
+
+  button.addEventListener('click', function () {
+    current_page = page;
+    displayList(arrayLegends, legends_container, rows, current_page);
+
+    let current_btn = document.querySelector('.pagenumbers button.active');
+    current_btn.classList.remove('active');
+
+    button.classList.add('active')
+  })
+
+  return button;
+}
+
+displayList(arrayLegends, legends_container, rows, current_page);
+setupPagination(arrayLegends, pagination_element, rows);
+
+
 /*---FILTRO DE LA DATA---*/
 
 filter.addEventListener('click', (e) => {
@@ -64,11 +122,13 @@ filter.addEventListener('click', (e) => {
   //console.log('rol',rol)
   if (rol == null || rol == '' || rol == 'All') {
     document.getElementById('legends_container').innerHTML = '';
-    getLegends(arrayLegends);
+    displayList(arrayLegends, legends_container, rows, current_page);
+    setupPagination(arrayLegends, pagination_element, rows);
   } else {
     const result = order.filterLegend(arrayLegends, rol)
     document.getElementById('legends_container').innerHTML = '';
-    getLegends(result)
+    displayList(result, legends_container, rows, current_page);
+    setupPagination(result, pagination_element, rows);
   }
 })
 
@@ -81,38 +141,38 @@ selector.addEventListener("click", (e) => {
   if (orderName == "asc") {
     const asc = order.nameChampionAz(arrayLegends);
     document.getElementById("legends_container").innerHTML = "";
-    getLegends(asc)
+    displayList(asc, legends_container, rows, current_page);
+    setupPagination(asc, pagination_element, rows);
   } else if (orderName == "desc") {
     const desc = order.nameChampionZa(arrayLegends);
     document.getElementById("legends_container").innerHTML = "";
-    getLegends(desc)
+    displayList(desc, legends_container, rows, current_page);
+    setupPagination(desc, pagination_element, rows);
   }
 });
 
 /*BUSCADOR */
-const inputSearch = document.querySelector('#inputSearch'),
-  result = document.querySelector('#legends_container');
-
 const search = () => {
 
-  result.innerHTML = '';
+  legends_container.innerHTML = '';
   const texto = inputSearch.value.toLowerCase();
 
   for (let legend of arrayLegends) {
     let nombre = legend.name.toLowerCase()
     if (nombre.indexOf(texto) != -1) {
 
-      result.innerHTML +=
+      legends_container.innerHTML +=
         `<div class="legends">
         <img class="img-container" src="${legend.splash}" alt="">
         <div class="name">${legend.name}</div>
         <div class="name">"${legend.title}"</div>
       </div>`
+
     }
   }
 
-  if (result.innerHTML == '') {
-    result.innerHTML +=
+  if (legends_container.innerHTML == '') {
+    legends_container.innerHTML +=
       `<div class="legends">
       <img class="img-container" src="./imagenes/notFound.gif" alt="">
       <div class="name">Not Found</div>

@@ -19,7 +19,7 @@ let level = 0;
 
 /**HTML */
 const listStats = (name, splash, hp, hpActual, mp, mpActual, attackdamage, attackActual, iddiv) => {
-  console.log('mpActual', mpActual);
+  //console.log('mpActual', mpActual);
   document.querySelector(iddiv).innerHTML = '';
 
   const legends_stats1 = document.createElement('div'),
@@ -64,21 +64,6 @@ const getStats = (objLegend, selected, iddiv) => {
     }
   }
 };
-
-/*METODO MAP */
-/* const prodNivel = arrayLegends.map(
-  (item) => {
-    const name = item.name
-    const hp = item.stats.hpperlevel * level
-    return name + ': ' + hp
-  })  */
-/*  const level = e.target.value;
- const position = 1;
- const prodNivel = order.statsPerLevel(arrayLegends,level,position)
- console.log('prueba', prodNivel) */
-;
-//console.log('prueba', prodNivel)
-//return prodNivel;
 
 /*ESTADISTICA SELECT */
 
