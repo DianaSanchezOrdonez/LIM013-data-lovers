@@ -13,11 +13,11 @@ let count = 0;
 
 button.addEventListener('click', () => {
   if (count == 0) {
-    links.className = ('links_two');
+    links.className = ('links two');
     count = 1;
   } else {
-    links.classList.remove('two');
-    links.className = ('links_one');
+    links.classList.remove('one');
+    links.className = ('links one');
     count = 0;
   }
 })

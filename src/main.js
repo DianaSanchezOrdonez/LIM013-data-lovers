@@ -119,7 +119,7 @@ setupPagination(arrayLegends, pagination_element, rows);
 /*---FILTRO DE LA DATA---*/
 filter.addEventListener('click', (e) => {
   const rol = e.target.id
-  //console.log('rol', rol)
+  //console.log('rol', e.target.id)
   if (rol == '' || rol == 'filter' || rol == 'All') {
     document.getElementById('legends_container').innerHTML = '';
     displayList(arrayLegends, legends_container, rows, current_page);

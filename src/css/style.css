@@ -89,7 +89,8 @@ header nav a {
   flex-grow: 1;
 }
 
-header nav a:hover, .active {
+header nav a:hover,
+.active {
   border-bottom: 2px solid #fff;
 }
 
@@ -138,7 +139,7 @@ main .list .item:hover {
   color: #fff;
   padding: 20px;
   width: 400px;
- /*  top: 70%;
+  /*  top: 70%;
   left: 22%; 
   position: absolute;
   display: table-header-group; */
@@ -260,6 +261,7 @@ footer i:hover {
 
 #filter {
   background: white;
+  /* width: 50%; */
   width: 50%;
   border: 2px solid #986E1E;
   margin: 10px 0px;
@@ -536,8 +538,8 @@ input[type=button] {
     width: 100%;
     display: flex;
     align-items: center;
-    border-bottom: 2px solid #986E1E;
-    font-size: 14px;
+    border-top: 2px solid #986E1E;
+    font-size: 18px;
   }
 
   .icon {
@@ -549,13 +551,13 @@ input[type=button] {
     padding: 20px;
     z-index: 100;
     cursor: pointer;
-    margin-left:100px;
+    margin-left: 100px;
   }
 
   .links {
     position: fixed;
-    height: 250px;
-    width: 50%;
+    height: 320px;
+    width: 100%;
     right: 0;
     flex-direction: column;
     transition: all 1s ease;
@@ -563,13 +565,15 @@ input[type=button] {
     -moz-transition: all 1s ease;
     -ms-transition: all 1s ease;
     -o-transition: all 1s ease;
-    background: #111;
     margin-top: 153px;
     position: absolute;
   }
 
-  .links a:hover, .active {
+  .links a:hover,
+  .active {
     color: #fff;
+    border-bottom: none;
+    text-align: center;
   }
 
   .one {
