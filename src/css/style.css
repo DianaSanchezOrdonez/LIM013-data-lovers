@@ -10,11 +10,6 @@
 }
 
 @font-face {
-  font-family: FFMarkProBold;
-  src: url("../resources/FontFont_FF.Mark.Pro.Bold.otf");
-}
-
-@font-face {
   font-family: FFMarkProBlack;
   src: url("../resources/FontFont_FF.Mark.Pro.Black.otf");
 }
@@ -146,7 +141,7 @@ main .list .item:hover {
   text-decoration: none;
   font-size: 15px;
   text-align: center;
-  display: inline-block;
+  display: inline-block; 
 }
 
 aside {
