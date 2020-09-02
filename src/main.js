@@ -48,6 +48,7 @@ const listLegends = (name, img, title) => {
 };
 
 /*---TRAER DATA---*/
+
 const getLegends = (objLegend) => {
   for (let i = 0; i < objLegend.length; i++) {
     let name = objLegend[i].name;
@@ -99,7 +100,7 @@ const paginationButton = (page) => {
 
   if (current_page == page) button.classList.add('active');
 
-  button.addEventListener('click', () => {
+  button.addEventListener('click', function () {
     current_page = page;
     displayList(arrayLegends, legends_container, rows, current_page);
 
@@ -117,9 +118,10 @@ setupPagination(arrayLegends, pagination_element, rows);
 
 
 /*---FILTRO DE LA DATA---*/
-filter.addEventListener('click', (e) => {
-  const rol = e.target.id
-  //console.log('rol', e.target.id)
+
+filter.addEventListener('change', (e) => {
+  const rol = e.target.value
+  //console.log('rol', rol)
   if (rol == '' || rol == 'filter' || rol == 'All') {
     document.getElementById('legends_container').innerHTML = '';
     displayList(arrayLegends, legends_container, rows, current_page);
@@ -181,3 +183,20 @@ const search = () => {
 }
 
 inputSearch.addEventListener('keyup', search)
+
+/*MENU BURGUER */
+
+/*let button=document.getElementById('icon');
+let links=document.getElementById('links');
+let count=0;
+
+button.addEventListener('click', function(){
+  if (count==0){
+    links.className = ('links_two');
+    count=1;
+  }else{
+    links.classList.remove('two');
+    links.className = ('links_one');
+    count=0;
+  }
+})*/

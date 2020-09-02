@@ -35,7 +35,7 @@ const listStats = (name, splash, hp, hpActual, mp, mpActual, attackdamage, attac
   nameLegend.innerHTML += name;
   statsLegend.innerHTML += `<p>Vida por Nivel: ${hp}</p>
                             <h3>Vida Actual: ${hpActual}</h3>
-                            <p>Mana por Nivel : ${mp}</p>
+                            <p>Mana por NIvel : ${mp}</p>
                             <h3>Mana Actual: ${mpActual}</h3>
                             <p>Ataque por Nivel: ${attackdamage}</p>
                             <h3>Ataque Actual: ${attackActual}</h3>`;
