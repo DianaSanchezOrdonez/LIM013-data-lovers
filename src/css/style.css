@@ -465,28 +465,52 @@ input[type=button] {
 }
 
 .overlay img {
-  width: 200px;
+  width: 250px;
   max-width: 100%;
+  border-radius: 10px;
 }
 
 .overlay .description {
   display: block;
   background: #fff;
-  padding: 20px;
   text-align: center;
   margin-top: 5px;
-  border-radius: 10px;
-  max-width: 50%;
+  width: 250px;
+  /* border-radius: 10px; */
+  border-radius: 10px 10px 0px 0px;
+  padding: 20px;
 }
 
-.container-img{
+.overlay .info {
+  padding: 10px 0px;
+  text-align: center;
+  width: 250px;
+  background: #fff;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.overlay .info p {
+  display: inline-block;
+  padding: 10px 5px;
+  background: #986E1E;
+  width: 30%;
+  text-align: center;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.container-img {
   position: relative;
 }
-.overlay #btn-close{
+
+.overlay #btn-close {
   background: none;
   font-size: 20px;
   color: #fff;
-  border:none;
+  border: none;
   cursor: pointer;
   position: absolute;
   right: -20px;
