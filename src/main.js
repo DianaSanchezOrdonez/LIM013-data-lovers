@@ -6,7 +6,8 @@ const datos = data.data,
   arrayLegends = Object.values(datos),
   legends_container = document.getElementById('legends_container'),
   pagination_element = document.getElementById('pagination'),
-  inputSearch = document.querySelector('#inputSearch');
+  inputSearch = document.querySelector('#inputSearch'),
+  daño_de_ataque = document.querySelector('.daño_de_ataque');
 
 /*MENU BURGUER */
 let button = document.getElementById('icon');
@@ -25,7 +26,7 @@ button.addEventListener('click', () => {
 })
 
 /*---LISTAR EN EL HTML---*/
-const listLegends = (name, img, title) => {
+const listLegends = (name, img, title, blurb) => {
 
   const legend = document.createElement("div"),
     imgLegend = document.createElement("img"),
@@ -35,6 +36,7 @@ const listLegends = (name, img, title) => {
   nameLegend.innerHTML += name;
   titleLegend.innerHTML += `<p>"${title}"</p>`;
   legend.setAttribute("class", "legends");
+  legend.dataset.blurb = blurb;
   imgLegend.setAttribute("class", "img-container");
   imgLegend.setAttribute("src", img);
   nameLegend.setAttribute("class", "name");
@@ -48,14 +50,13 @@ const listLegends = (name, img, title) => {
 };
 
 /*---TRAER DATA---*/
-
 const getLegends = (objLegend) => {
   for (let i = 0; i < objLegend.length; i++) {
     let name = objLegend[i].name;
     let img = objLegend[i].splash;
     let title = objLegend[i].title;
-
-    listLegends(name, img, title);
+    let blurb = objLegend[i].blurb;
+    listLegends(name, img, title, blurb);
 
   }
 };
@@ -79,7 +80,7 @@ const displayList = (items, wrapper, rows_per_page, page) => {
     let item = paginationItems[i];
 
     //console.log('item',item.name)
-    listLegends(item.name, item.splash, item.title)
+    listLegends(item.name, item.splash, item.title, item.blurb)
   }
 
 }
@@ -118,7 +119,6 @@ setupPagination(arrayLegends, pagination_element, rows);
 
 
 /*---FILTRO DE LA DATA---*/
-
 filter.addEventListener('change', (e) => {
   const rol = e.target.value
   //console.log('rol', rol)
@@ -132,6 +132,15 @@ filter.addEventListener('change', (e) => {
     displayList(result, legends_container, rows, current_page);
     setupPagination(result, pagination_element, rows);
   }
+})
+
+/*FILTER EN RANGE */
+daño_de_ataque.addEventListener('change', (e) => {
+  const range = e.target.value;
+  const result = order.filterRange(arrayLegends, range)
+  document.getElementById('legends_container').innerHTML = '';
+  displayList(result, legends_container, rows, current_page);
+  setupPagination(result, pagination_element, rows);
 })
 
 /*ORDER */
@@ -162,14 +171,7 @@ const search = () => {
   for (let legend of arrayLegends) {
     let nombre = legend.name.toLowerCase()
     if (nombre.indexOf(texto) != -1) {
-
-      legends_container.innerHTML +=
-        `<div class="legends">
-        <img class="img-container" src="${legend.splash}" alt="">
-        <div class="name">${legend.name}</div>
-        <div class="name">"${legend.title}"</div>
-      </div>`
-
+      listLegends(legend.name, legend.splash, legend.title, legend.blurb)
     }
   }
 
@@ -184,19 +186,26 @@ const search = () => {
 
 inputSearch.addEventListener('keyup', search)
 
-/*MENU BURGUER */
+/*MOSTRAR MODAL AL HACER CLICK EN CADA LEGEND */
+const overlay = document.getElementById('overlay');
+document.querySelectorAll('.legends_container .legends img').forEach((item) => {
 
-/*let button=document.getElementById('icon');
-let links=document.getElementById('links');
-let count=0;
+  item.addEventListener('click', () => {
+    const ruta = item.getAttribute('src');
+    const description = item.parentNode.dataset.blurb;
 
-button.addEventListener('click', function(){
-  if (count==0){
-    links.className = ('links_two');
-    count=1;
-  }else{
-    links.classList.remove('two');
-    links.className = ('links_one');
-    count=0;
-  }
-})*/
+    overlay.classList.add('active');
+    document.querySelector('#overlay img').src = ruta;
+    document.querySelector('#overlay .description').innerHTML = description;
+  });
+  //console.log('ruta',description);
+});
+
+document.querySelector('#btn-close').addEventListener('click', () => {
+  overlay.classList.remove('active')
+})
+
+overlay.addEventListener('click', (e) => {
+  /* overlay.classList.remove('active') */
+  e.target.id === 'overlay' ? overlay.classList.remove('active') : ''
+})

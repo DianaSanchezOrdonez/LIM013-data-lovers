@@ -104,7 +104,7 @@ legend02.addEventListener('change', (e) => {
 const inputLevel = document.getElementById('number');
 inputLevel.addEventListener('change', (e) => {
   level = parseInt(e.target.value);
-  console.log('level', level)
+  //console.log('level', level)
   if (level === '') {
     level = 1
   }

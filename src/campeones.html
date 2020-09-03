@@ -31,7 +31,7 @@
     </header>
 
 
-    <div class="search">
+    <section class="search">
       <div class="search1">
         <input type="text" id="inputSearch" placeholder="Buscar a ...">
       </div>
@@ -47,26 +47,37 @@
         </select>
 
         <select class="daño_de_ataque">
-          <option selected value="">Daño de Ataque</option>
-          <option selected value="">Alto</option>
-          <option selected value="">Medio</option>
-          <option selected value="">Bajo</option>
+          <option value="">Rangos de Ataque</option>
+          <option value="range1">[125-229]</option>
+          <!-- <option value="range2">[230-334]</option> -->
+          <option value="range3">[335-439]</option>
+          <option value="range4">[440-544]</option>
+          <option value="range5">[545-640]</option>
         </select>
+
         <select name="order" id="order">
           <option value="asc">Ordenar A-Z</option>
           <option value="desc">Ordenar Z-A</option>
         </select>
       </div>
-    </div>
-    <div id="legends_container" class="legends_container">
+    </section>
+    <section id="legends_container" class="legends_container">
       <!-- <div class="legends">
           <img class="img-container" src="" alt="">
           <div class="name"></div>
         </div> -->
-    </div>
-    <div class="pagenumbers" id="pagination">
+    </section>
+    <section class="overlay" id="overlay">
+      <div class="container-img">
+        <button id="btn-close"><i class="fas fa-times"></i></button>
+        <img src="">
+      </div>
+      <p class="description"></p>
 
-    </div>
+    </section>
+    <section class="pagenumbers" id="pagination">
+
+    </section>
 
   </div>
   <script src="./main.js" type="module"></script>

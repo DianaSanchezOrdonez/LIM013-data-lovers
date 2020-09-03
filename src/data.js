@@ -7,6 +7,19 @@ const order = {
     )
     return result
   },
+  filterRange: function (data, range) {
+    if (range == 'range1') {
+      return data.filter(objLegend => objLegend.stats.attackrange >= 125 && objLegend.stats.attackrange < 230)
+    } else if (range == 'range2') {
+      return data.filter(objLegend => objLegend.stats.attackrange >= 230 && objLegend.stats.attackrange < 335)
+    } else if (range == 'range3') {
+      return data.filter(objLegend => objLegend.stats.attackrange >= 335 && objLegend.stats.attackrange < 440)
+    } else if (range == 'range4') {
+      return data.filter(objLegend => objLegend.stats.attackrange >= 440 && objLegend.stats.attackrange < 545)
+    } else {
+      return data.filter(objLegend => objLegend.stats.attackrange >= 545)
+    }
+  },
   nameChampionAz: function (data) {
     const result =
       data.sort((a, b) => {
