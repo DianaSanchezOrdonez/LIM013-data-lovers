@@ -23,10 +23,12 @@ const order = {
   nameChampionAz: function (data) {
     const result =
       data.sort((a, b) => {
-        if (a.name > b.name) {
+        a = a.name.toLowerCase();
+        b = b.name.toLowerCase();
+        if (a > b) {
           return 1
         }
-        if (a.name < b.name) {
+        if (a < b) {
           return -1;
         }
         return 0;
@@ -38,10 +40,12 @@ const order = {
   nameChampionZa: function (data) {
     const result =
       data.sort((b, a) => {
-        if (a.name > b.name) {
+        a = a.name.toLowerCase();
+        b = b.name.toLowerCase();
+        if (a > b) {
           return 1
         }
-        if (a.name < b.name) {
+        if (a < b) {
           return -1;
         }
         return 0;

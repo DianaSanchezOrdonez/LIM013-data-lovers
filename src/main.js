@@ -165,6 +165,7 @@ selector.addEventListener("click", (e) => {
     document.getElementById("legends_container").innerHTML = "";
     displayList(asc, legends_container, rows, current_page);
     setupPagination(asc, pagination_element, rows);
+
   } else if (orderName == "desc") {
     const desc = order.nameChampionZa(arrayLegends);
     document.getElementById("legends_container").innerHTML = "";
