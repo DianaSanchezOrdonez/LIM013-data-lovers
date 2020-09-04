@@ -8,16 +8,16 @@ const order = {
     return result
   },
   filterRange: function (data, range) {
-    if (range == 'range1') {
-      return data.filter(objLegend => objLegend.stats.attackrange >= 125 && objLegend.stats.attackrange < 230)
-    } else if (range == 'range2') {
-      return data.filter(objLegend => objLegend.stats.attackrange >= 230 && objLegend.stats.attackrange < 335)
-    } else if (range == 'range3') {
-      return data.filter(objLegend => objLegend.stats.attackrange >= 335 && objLegend.stats.attackrange < 440)
-    } else if (range == 'range4') {
-      return data.filter(objLegend => objLegend.stats.attackrange >= 440 && objLegend.stats.attackrange < 545)
+    if (range == 'rango1') {
+      return data.filter(objLegend => objLegend.stats.attackrange >= 125 && objLegend.stats.attackrange <= 230)
+    } else if (range == 'rango2') {
+      return data.filter(objLegend => objLegend.stats.attackrange >= 231 && objLegend.stats.attackrange <= 335)
+    } else if (range == 'rango3') {
+      return data.filter(objLegend => objLegend.stats.attackrange >= 336 && objLegend.stats.attackrange <= 440)
+    } else if (range == 'rango4') {
+      return data.filter(objLegend => objLegend.stats.attackrange >= 441 && objLegend.stats.attackrange <= 545)
     } else {
-      return data.filter(objLegend => objLegend.stats.attackrange >= 545)
+      return data.filter(objLegend => objLegend.stats.attackrange >= 546)
     }
   },
   nameChampionAz: function (data) {
