@@ -68,6 +68,10 @@ const getLegends = (objLegend) => {
 
 getLegends(arrayLegends);
 
+/* const mapMajor = arrayLegends.map ((objLegend) => objLegend.stats.attackrange)
+console.log('mayor',Math.max.apply(null,mapMajor))
+console.log('menor',Math.min.apply(null,mapMajor))  */
+
 /**PAGINACIÓN */
 let current_page = 1;
 let rows = 8;
