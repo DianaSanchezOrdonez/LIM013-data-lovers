@@ -479,6 +479,7 @@ input[type=button] {
   /* border-radius: 10px; */
   border-radius: 10px 10px 0px 0px;
   padding: 20px;
+  color: #000;
 }
 
 .overlay .info {
@@ -491,9 +492,10 @@ input[type=button] {
 
 .overlay .info p {
   display: inline-block;
-  padding: 10px 5px;
-  background: #986E1E;
-  width: 30%;
+  padding: 10px 6px;
+  background: rgb(152, 110, 30,.8);
+  width: 75px;
+  color: #000;
   text-align: center;
   border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -607,6 +609,7 @@ input[type=button] {
     z-index: 100;
     cursor: pointer;
     margin-left: 100px;
+    font-size: 35px;
   }
 
   .search {
