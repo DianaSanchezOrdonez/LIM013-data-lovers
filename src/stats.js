@@ -35,13 +35,17 @@ const listStats = (name, splash, hp, hpActual, mp, mpActual, attackdamage, attac
   nameLegend.innerHTML += name;
   statsLegend.innerHTML += `<p>Vida por Nivel: ${hp}</p>
                             <h3>Vida Actual: ${hpActual}</h3>
-                            <p>Mana por NIvel : ${mp}</p>
+                            <p>Mana por Nivel : ${mp}</p>
                             <h3>Mana Actual: ${mpActual}</h3>
                             <p>Ataque por Nivel: ${attackdamage}</p>
                             <h3>Ataque Actual: ${attackActual}</h3>`;
   nameLegend.setAttribute('class', 'name');
   legends_stats1.setAttribute('class', 'legends_stats1');
   image.setAttribute('src', splash);
+
+  legends_stats1.dataset.hpactual = hpActual;
+  legends_stats1.dataset.mpactual = mpActual;
+  legends_stats1.dataset.attackactual = attackActual;
 
   document.querySelector(iddiv).appendChild(legends_stats1);
   legends_stats1.appendChild(nameLegend);
@@ -52,8 +56,7 @@ const listStats = (name, splash, hp, hpActual, mp, mpActual, attackdamage, attac
 
 /*TRAER DATA ESTADÍSTICAS (hpper level, mpper level, attack damage per level)*/
 const getStats = (objLegend, selected, iddiv) => {
-  //console.log('level123', level);
-  //console.log('select123', selected);
+
   for (let i = 0; i < objLegend.length; i++) {
     let name = objLegend[i].name;
     let splash = objLegend[i].splash;
@@ -64,7 +67,7 @@ const getStats = (objLegend, selected, iddiv) => {
     let attackdamage = objLegend[i].stats.attackdamage;
     let attackActual = order.attackperLevel(objLegend, level, i);
 
-    if (objLegend[i].name == selected && level <=18) {
+    if (objLegend[i].name == selected && level <= 18) {
       listStats(name, splash, hp, hpActual, mp, mpActual, attackdamage, attackActual, iddiv);
     }
   }
@@ -91,13 +94,26 @@ for (let i = 0; i < arrayLegends.length; i++) {
 }
 
 legend01.addEventListener('change', (e) => {
-  const legend = e.target.value
+  const legend = e.target.value;
+
   getStats(arrayLegends, legend, "#legends_list_izquierda");
+  /* const hijo = document.querySelector('#legends_list_izquierda').querySelectorAll('.legends_stats1');
+
+  hijo.forEach(child => {
+    myChart.data.datasets[0].label = legend;
+    myChart.data.datasets[0].data = [child.dataset.hpactual, child.dataset.mpactual, child.dataset.attackactual]
+  }) */
 })
 
 legend02.addEventListener('change', (e) => {
-  const legend = e.target.value
+  const legend = e.target.value;
+
   getStats(arrayLegends, legend, "#legends_list_derecha");
+ /*  const hijo = document.querySelector('#legends_list_derecha').querySelectorAll('.legends_stats1');
+  myChart.data.datasets[1].label = legend;
+  hijo.forEach(child => {
+    myChart.data.datasets[1].data = [child.dataset.hpactual, child.dataset.mpactual, child.dataset.attackactual]
+  }) */
 
 })
 
@@ -107,15 +123,53 @@ inputLevel.addEventListener('change', (e) => {
   //console.log('level', level)
   if (level === '') {
     level = 1
-  } else if (level >18){
+  } else if (level > 18) {
     alert('Just only numbers between 1 and 18')
   }
   getStats(arrayLegends, document.querySelector('#select01').value, "#legends_list_izquierda");
   getStats(arrayLegends, document.querySelector('#select02').value, "#legends_list_derecha")
+
 });
 
 /*CANVAS */
-let stats = ['hpperlevel','hpActual','mpperlevel','mpActual','attackdamage','attackActual']
+/* let canvas = document.getElementById('canvas').getContext("2d");
+let color = Chart.helpers.color;
+window.chartColors = {
+  red: 'rgb(255, 99, 132)',
+  yellow: 'rgb(255, 205, 86)',
+  green: 'rgb(75, 192, 192)',
+  blue: 'rgb(54, 162, 235)',
+  grey: 'rgb(201, 203, 207)'
+};
+let myChart = new Chart(canvas, {
+  type: "bar",
+  data: {
+    labels: ['hpActual', 'mpActual', 'attackActual'],
+    datasets: [{
+        label: 'Campeon 01',
+        data: [],
+        backgroundColor: color(window.chartColors.blue).rgbString(),
+      },
+      {
+        label: 'Campeon 02',
+        data: [],
+        backgroundColor: color(window.chartColors.green).rgbString(),
+      }
+    ]
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
+    }
+  }
+}); */
+
+//console.log('canvas',myChart.data.datasets[0].data);
+/*let stats = ['hpperlevel','hpActual','mpperlevel','mpActual','attackdamage','attackActual']
 let color= Chart.helpers.color;
 window.chartColors = {
   red: 'rgb(255, 99, 132)',
@@ -170,3 +224,4 @@ window.onload = function() {
   });
 
 };
+ */
